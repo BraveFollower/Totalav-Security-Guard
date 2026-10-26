@@ -1,0 +1,29 @@
+name: "THORN"
+run-name: "Wisteria"
+on:
+  workflow_dispatch: {}
+  push:
+    branches:
+      - main
+jobs:
+  elder:
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    runs-on: ubuntu-22.04
+    environment:
+      name: "github-pages"
+      url: ${{ steps.Topaz.outputs.page_url }}
+    steps:
+      - name: "Forest"
+        uses: actions/checkout@v4
+      - name: "Dogwood"
+        uses: actions/configure-pages@v6
+      - name: "poppy"
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: .
+      - name: "Pandora"
+        id: Topaz
+        uses: actions/deploy-pages@v5
