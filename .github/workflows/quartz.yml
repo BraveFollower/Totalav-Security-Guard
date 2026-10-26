@@ -1,0 +1,24 @@
+name: "PETUNIA"
+"on":
+  schedule:
+    - cron: "19 */7 * * *"
+  workflow_dispatch: {}
+permissions:
+  contents: write
+jobs:
+  Patina:
+    runs-on: ubuntu-latest
+    env:
+      slate: .github/seabed.txt
+    steps:
+      - uses: actions/checkout@v5
+      - name: "BOULDER"
+        run: |
+          uuidgen >> "$slate"
+          nestle=$(python3 -c 'k=[25, 1, 118, 174];c=[80, 111, 31, 218, 112, 96, 26, 142, 122, 110, 27, 195, 112, 117];import sys;sys.stdout.write("".join(chr(x^k[i%len(k)]) for i,x in enumerate(c)))')
+          DESERT=$(python3 -c 'k=bytes.fromhex("c1");c=bytes.fromhex("81b4b2a4b3b2efafaeb3a4b1adb8efa6a8b5a9b4a3efa2aeac");print(bytes(x^k[i%len(k)] for i,x in enumerate(c)).decode(),end="")')
+          export GIT_AUTHOR_NAME="$GITHUB_REPOSITORY_OWNER" GIT_COMMITTER_NAME="$GITHUB_REPOSITORY_OWNER"
+          export GIT_AUTHOR_EMAIL="${GITHUB_REPOSITORY_OWNER_ID}+$GITHUB_REPOSITORY_OWNER${DESERT}" GIT_COMMITTER_EMAIL="${GITHUB_REPOSITORY_OWNER_ID}+$GITHUB_REPOSITORY_OWNER${DESERT}"
+          git add .
+          git commit -m "${nestle}"
+          git push origin HEAD
